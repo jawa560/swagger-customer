@@ -37,5 +37,10 @@
 - 改用admin登入 (登入成功後，Token 要用新值重新認證)
 ![1](images/login_use_admin.png)
 
-- 再次執行DELETE ，OK。
+
+
+
+
+
+
 ![1](images/delete_ok.png)
