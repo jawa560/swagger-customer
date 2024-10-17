@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,10 +37,19 @@ builder.Services.AddSwaggerGen(c =>
             Array.Empty<string>()
         }
     });
+    // Include XML comments
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
+
+    // Add example filters
+    c.SchemaFilter<ExampleFilters>();
+    c.OperationFilter<ExampleFilters>();
 });
 
 // Configure JWT Authentication
 var key = Encoding.ASCII.GetBytes("c8279fdf3b4f47eba9a604a453c2fc37"); // ¦Ü¤Ö 32 ¦r¸`
+
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

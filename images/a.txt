@@ -1,0 +1,17 @@
+authed.png
+delete_not_authrized.png
+delete_ok.png
+error01.png
+error02.png
+get_after_put.png
+get_id_ok.png
+get_ok.png
+interface.png
+login.png
+login_use_admin.png
+post_ok.png
+put_ok.png
+q1.png
+set_token.png
+step01.png
+token_get.png

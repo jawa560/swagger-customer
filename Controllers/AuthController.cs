@@ -13,6 +13,8 @@ namespace CustomerApi.Controllers
         private readonly string _key = "c8279fdf3b4f47eba9a604a453c2fc37";
 
         [HttpPost("login")]
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(401)]
         public IActionResult Login([FromBody] LoginModel login)
         {
             if (login.Username == "user" && login.Password == "password")
