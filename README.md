@@ -1,5 +1,57 @@
 
- # 專案說明
+## 各API header/body/param/response 內容
+  header 及 body 請參考畫面，param 及 response 分述下:
+ 
+- GET (查詢所有客戶資料)
+  - 傳送參數
+    - param 無
+  
+  - 返回值
+    - response code="200"，顯示所有客戶.
+    - response code="401"，沒有權限可開啟本頁.
+    - response code="404"，尚無資料.
+    
+- Get("{id}")(查詢單筆客戶資料)
+  - 傳送參數
+    - param name="id"，要查詢的客戶ID:，
+
+  - 返回值
+    - response code="200"，查詢到客戶資料.
+    - response code="401"，沒有權限可開啟本頁.
+    - response code="404"，查無資料.
+    
+
+- POST (建立的客戶資料)
+  - 傳送參數
+    - param name="customer"，要建立的客戶資料內容.
+  
+  - 返回值
+    - response code="201"，新客戶添加成功.
+    - response code="400"，無效的輸入值.
+    - response code="401"，沒有權限可開啟本頁.
+   
+
+- PUT
+  - 傳送參數
+    - param name="id"，要更改的客戶 ID:，
+    - aram name="customer"，要更改的客戶資料:，
+  
+  - 返回值 
+    - response code="204"，客戶資料更改成功.
+    - response code="400"，無效的輸入值.
+    - response code="401"，沒有權限可開啟本頁.
+    - response code="404"，無此ID資料.
+
+- DELETE
+  - 傳送參數
+    - param name="id"，要刪除的客戶 ID:
+
+  - 返回值
+    - response code="204"，客戶資料刪除成功.
+    - response code="401"，沒有權限可開啟本頁.
+    - response code="404"，尚無資料.
+   
+# 專案說明
   以 **Swagger** 建立 Restful CURD 功能的 web-api 測試介面   
  
  - 介面
@@ -45,49 +97,4 @@
 ![1](images/delete_ok.png)
 
 
- # 各API header/body/param/response 內容
- header 及 body 請參考畫面，param 及 response 分述下:
  
-- GET
-  查詢所有客戶資料:
-  param 無
-  
-返回值
-  response code="200"，顯示所有客戶.
-  response code="401"，沒有權限可開啟本頁.
-  response code="404"，尚無資料.
-    
-- Get("{id}") 
-  param name="id"，要查詢的客戶ID:，
-
-返回值
-  response code="200"，查詢到客戶資料.
-  response code="401"，沒有權限可開啟本頁.
-  response code="404"，查無資料.
-    
-
-- POST
-  param name="customer"，要建立的客戶資料內容.， 
-  
- 返回值
-  response code="201"，新客戶添加成功.
-  response code="400"，無效的輸入值.
-  response code="401"，沒有權限可開啟本頁.
-   
-
-- PUT
-  param name="id"，要更改的客戶 ID:，
-  param name="customer"，要更改的客戶資料:，
-  returns，No content.</returns，
-        
-  response code="204"，客戶資料更改成功.
-  response code="400"，無效的輸入值.
-  response code="401"，沒有權限可開啟本頁.
-  response code="404"，無此ID資料.
-
-- DELETE|
-  param name="id"，要刪除的客戶 ID:，
-  returns，No content.</returns，
-  response code="204"，客戶資料刪除成功.
-  response code="401"，沒有權限可開啟本頁.
-  response code="404"，尚無資料.
