@@ -1,0 +1,16 @@
+services:
+  customerapi:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3030:8080"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "100:110"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - customerapi
